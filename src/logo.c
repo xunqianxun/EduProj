@@ -3,7 +3,7 @@
 // Data     : 2022,11,8                                                  //
 // describe : Prject`s logo                                              //
 //-----------------------------------------------------------------------//
-#include "./include/commont.h"
+#include "commont.h"
 
 int InitLogo(){
     printf("||*****************|          ||**************|\n");

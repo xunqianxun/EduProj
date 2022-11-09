@@ -1,14 +1,19 @@
 #ifndef COMMONT_H_
 #define COMMONT_H_
 
-//#define MODE_FIRST
+#include "ioe.h"
+#include "Link.h"
+#include "file.h"
 
+
+//#define MODE_FIRST
+enum{ROOT, USER, QUICK};
 int EduPrjl;
-enum{ROOT, USER, QUICK}
+
 
 int do_root();
 int do_user();
-int InitLogo()
+int InitLogo();
 
 
 #endif

@@ -6,9 +6,7 @@
 
 #include <stdio.h>
 #include <assert.h>
-#include "./include/commont.h"
-#include "./include/Link.h"
-#include "./include/ioe.h"
+#include "commont.h"
 
 NODE *Inisys(NODE *L){
     NODE *s;
@@ -61,22 +59,37 @@ PNODE InitList(NODE *L, char sc, char ec, int st, int et, int pr, int qu){
 return L;
 }
 
-PNODE Getelem(PNODE L, char sc[8], char ec[8]){
+PNODE Getelem(PNODE L, char sc, char ec){
     NODE *p = L->next ;
     if(p->next == NULL){
         assert(1);
         printf("init default\n");
     }
-    while((p->next != NULL) && (p->stear == sc) && (p->enear == ec)) {
-        p = p->next ;
+    while(p->next != NULL) {
+        if((p->stear == sc) && (p->enear == ec)){
+            break;
+        }
+        p = p->next ;        
     }
-    if(p->next == NULL){printf("can`t fand the ear\n");}
-    Log(p->stear, p->enear, p->sttime, p->entime, p->Price, p->quantity);
+
+    // Log(p->stear, p->enear, p->sttime, p->entime, p->Price, p->quantity);
 return p;
 }
 
-int Getnumber(PNODE L, int n){
-
+PNODE Getnumber(PNODE L, int n){
+    int j;
+    NODE* s;
+    s = L;
+    if(L->next == NULL){
+        assert(1);
+        printf("init default\n");
+    }
+    while((s->next != NULL) && (n > j)){
+        s = s->next;
+        j++;
+    }
+    // Log(s->stear, s->enear, s->sttime, s->entime, s->Price, s->quantity);
+return s;
 }
 
 int display(PNODE L){
@@ -85,16 +98,28 @@ int display(PNODE L){
         printf("init default\n");
     }
     while(L->next != NULL) {
-        {Log(L->stear, L->enear, L->sttime, L->entime, L->Price, L->quantity);}
+        {Log(L->stear[8], L->enear[8], L->sttime, L->entime, L->Price, L->quantity);}
     }
     return 1;
+}
+
+int change(PNODE L, char sc, char ec, int st, int et, int pr, int qu, int n){
+    NODE *s;
+    s = Getnumber(dl, n);
+    s->stear[8] = sc;
+    s->enear[8] = ec;
+    s->sttime = st;
+    s->entime = et;
+    s->Price = pr;
+    s->quantity = qu;
+return 1;
 }
 
 int Push(PNODE L, char sc, char ec, int st, int et, int pr, int qu){
     NODE *a;
     a = (NODE *)malloc(sizeof(NODE));
-    a->stear = sc;
-    a->enear = ec;
+    a->stear[8] = sc;
+    a->enear[8] = ec;
     a->sttime = st;
     a->entime = et;
     a->Price = pr;
@@ -105,18 +130,11 @@ int Push(PNODE L, char sc, char ec, int st, int et, int pr, int qu){
 return 1;
 }
 
-int Pop(PNODE L, char sc, char ec, int st, int et, int pr, int qu){
-    NODE *q;
-    if(L->next = NULL){
-       printf("this List init default\n");
-       assert(1);
-    }
-    while(L->next != NULL){
-        if((L->stear == sc) && (L->enear == ec) && (L->sttime == st) && (L->entime == et) && (L->Price == pr) && (L->quantity == qu)){
-            q = L->next;
-            L->next = q->next;
-            Log(q->stear, q->enear, q->sttime, q->entime, q->Price, q->quantity)
-        }
-    }
+int Pop(PNODE L, int n){
+    NODE *q, *p;
+    q = Getnumber(dl, n);
+    p = Getnumber(dl, n-1);
+    p->next = q->next;
     return 1;
 }
+

@@ -13,27 +13,29 @@ $(warning $(COLOR_RED)Warning: EduPrj-main.c does not exists!$(COLOR_END))
 endif
 
 CC=gcc
-GCCFLAGS= -Wall -o
-BUILDDIR=build/
+GCCFLAGS= -o
+BUILDDIR=./build/
+SRCDIR=./src/
+INFLAGS= -I include/
 TARGET=EduPrj
 
-main.o:EduPrj-main.c
-	$(CC) -c EduPrj-main.c $(GCCFLAGS) $(BUILDDIR)main.o
-file.o:file.c
-	$(CC) -c file.c $(GCCFLAGS) $(BUILDDIR)file.o
-ioe.o:ioe.c
-	$(CC) -c ioe.c $(GCCFLAGS) $(BUILDDIR)ioe.o
-Link.o:Link.c
-	$(CC) -c Link.c $(GCCFLAGS) $(BUILDDIR)Link.o
-logo.o:logo.c
-	$(CC) -c logo.c $(GCCFLAGS) $(BUILDDIR)logo.o
-root.o:root.c
-	$(CC) -c root.c $(GCCFLAGS) $(BUILDDIR)root.o
-user.o:user.c
-	$(CC) -c user.c $(GCCFLAGS) $(BUILDDIR)user.o
+EduPrj-main.o:$(SRCDIR)EduPrj-main.c
+	$(CC) -c $(SRCDIR)EduPrj-main.c $(GCCFLAGS) $(BUILDDIR)EduPrj-main.o $(INFLAGS)
+file.o:$(SRCDIR)file.c
+	$(CC) -c $(SRCDIR)file.c $(GCCFLAGS) $(BUILDDIR)file.o $(INFLAGS)
+ioe.o:$(SRCDIR)ioe.c
+	$(CC) -c $(SRCDIR)ioe.c $(GCCFLAGS) $(BUILDDIR)ioe.o $(INFLAGS)
+Link.o:$(SRCDIR)Link.c
+	$(CC) -c $(SRCDIR)Link.c $(GCCFLAGS) $(BUILDDIR)Link.o $(INFLAGS)
+logo.o:$(SRCDIR)logo.c
+	$(CC) -c $(SRCDIR)logo.c $(GCCFLAGS) $(BUILDDIR)logo.o $(INFLAGS)
+root.o:$(SRCDIR)root.c
+	$(CC) -c $(SRCDIR)root.c $(GCCFLAGS) $(BUILDDIR)root.o $(INFLAGS)
+user.o:$(SRCDIR)user.c
+	$(CC) -c $(SRCDIR)user.c $(GCCFLAGS) $(BUILDDIR)user.o $(INFLAGS)
 
-run: main.o file.o ioe.o Link.o logo.o root.o user.o
-	$(cc) $(BUILDDIR)main.o $(BUILDDIR)file.o $(BUILDDIR)ioe.o $(BUILDDIR)Link.o $(BUILDDIR)logo.o $(BUILDDIR)root.o $(BUILDDIR)user.o -o $(TARGET)
+run: EduPrj-main.o file.o ioe.o Link.o logo.o root.o user.o
+	$(CC) $(BUILDDIR)EduPrj-main.o $(BUILDDIR)file.o $(BUILDDIR)ioe.o $(BUILDDIR)Link.o $(BUILDDIR)logo.o $(BUILDDIR)root.o $(BUILDDIR)user.o -o $(TARGET)
 	./$(TARGET)
 	$(COLOR_GRE) EduPrj Work Successfully!! $(COLOR_ENG)
 
@@ -42,4 +44,5 @@ git:
 	git commit -m"up my build and change"
 
 clean:
-	rm *.o $(TARGET) -rf
+	rm -rf $(BUILDDIR)*.o
+	rm $(BUILDDIR)$(TARGET)

@@ -14,12 +14,14 @@ struct NODE *next ;
 }NODE, *PNODE ;
 
 PNODE InitList(NODE *L, char sc, char ec, int st, int et, int pr, int qu);
-PNODE Getelem(PNODE L, char sc[8], char ec[8]);
+PNODE Getelem(PNODE L, char sc, char ec);
 int display(PNODE L);
 NODE *Inisys(NODE *L);
-int Getnumber(PNODE L, int n);
+PNODE Getnumber(PNODE L, int n);
+int change(PNODE L, char sc, char ec, int st, int et, int pr, int qu, int n);
 int Push(PNODE L, char sc, char ec, int st, int et, int pr, int qu);
-int Pop(PNODE L, char sc, char ec, int st, int et, int pr, int qu);
+int Pop(PNODE L, int n);
 
 NODE *dl;
+
 #endif

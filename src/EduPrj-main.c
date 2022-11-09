@@ -3,14 +3,11 @@
 // Data     : 2022,11,8                                                  //
 // describe : EduPrj entrance                                            //
 //-----------------------------------------------------------------------//
-#include "./include/commont.h"
-#include "./include/Link.h"
-#include "./include/root.h"
-#include "./include/user.h"
-#include "stdio.h"
+#include "commont.h"
+#include <stdio.h>
 
 int main(int argc, char *argv){
-    logo();
+    InitLogo();
 
 #ifdef MODE_FIRST
     initsys();

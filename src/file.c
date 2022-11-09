@@ -3,9 +3,8 @@
 // Data     : 2022,11,8                                                  //
 // describe : read and write file                                        //
 //-----------------------------------------------------------------------//
-#include "./include/commont.h"
 #include <stdio.h>
-#include "./include/Link.h"
+#include "commont.h"
 
 int initsys(){
     int cont = 0;
