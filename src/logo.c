@@ -4,6 +4,7 @@
 // describe : Prject`s logo                                              //
 //-----------------------------------------------------------------------//
 #include "commont.h"
+#include <stdio.h>
 
 int InitLogo(){
     printf("||*****************|          ||**************|\n");

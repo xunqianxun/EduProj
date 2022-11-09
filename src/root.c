@@ -16,7 +16,7 @@ int do_root(){
     printf("four: quit root!\n")    ;
     printf("five: end the program!\n")    ;
     printf("please input you want do:");
-    // scanf("%d", &x);
+    scanf("%d", &x);
     switch (x)
     {
     case ONE:
@@ -29,14 +29,14 @@ int do_root(){
     case TWO:
         int s2;
         printf("please input need delete number:"); 
-        // scanf("%d", &s);
+        scanf("%d", &s2);
         Pop(dl, s2);
         EduPrjl = ROOT;
         break;
     case THREE:
         int n3 ;
         printf("please input you want change number:");
-        // scanf("%d", &n);
+         scanf("%d", &n3);
         char sc3, ec3;
         int st3,et3,pr3,qu3;
         scanf("please input need delete infomention:%c %c %d %d %d %d %d", &sc3, &ec3, &st3, &et3, &pr3, &qu3);

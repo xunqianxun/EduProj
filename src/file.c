@@ -14,10 +14,10 @@ int initsys(){
     while(feof(fp)){
     fread(s, sizeof(NODE), 1, fp); 
     if(cont == 0){
-        InitList(dl, s->stear, s->enear, s->sttime, s->entime, s->Price, s->quantity);
+        InitList(dl, s->stear[8], s->enear[8], s->sttime, s->entime, s->Price, s->quantity);
     }
     else {
-        Push(dl, s->stear, s->enear, s->sttime, s->entime, s->Price, s->quantity);
+        Push(dl, s->stear[8], s->enear[8], s->sttime, s->entime, s->Price, s->quantity);
     }
     cont++;
     }

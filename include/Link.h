@@ -13,6 +13,7 @@ int quantity ;
 struct NODE *next ;
 }NODE, *PNODE ;
 
+
 PNODE InitList(NODE *L, char sc, char ec, int st, int et, int pr, int qu);
 PNODE Getelem(PNODE L, char sc, char ec);
 int display(PNODE L);
