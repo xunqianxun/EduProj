@@ -14,10 +14,10 @@ int initsys(){
     while(feof(fp)){
     fread(s, sizeof(NODE), 1, fp); 
     if(cont == 0){
-        InitList(dl, s->stear[8], s->enear[8], s->sttime, s->entime, s->Price, s->quantity);
+        InitList(s->stear, s->enear, s->sttime, s->entime, s->Price, s->quantity);
     }
     else {
-        Push(dl, s->stear[8], s->enear[8], s->sttime, s->entime, s->Price, s->quantity);
+        Push(s->stear, s->enear, s->sttime, s->entime, s->Price, s->quantity);
     }
     cont++;
     }
@@ -29,7 +29,7 @@ return 1;
 
 int closesys(){
     NODE * l;
-    l = dl;
+    l = Getnumber(1);
     FILE *fp = fopen("/home/mulin/EduPrj/tools/keep.txt", "w");
     if(fp == NULL) {printf("open false\n");}
     while(l->next != NULL){

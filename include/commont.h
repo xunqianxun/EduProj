@@ -8,7 +8,7 @@
 
 //#define MODE_FIRST
 enum{ROOT, USER, QUICK};
-int EduPrjl;
+extern int EduPrjl;
 
 
 int do_root();

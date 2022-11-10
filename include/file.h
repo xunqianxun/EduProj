@@ -1,5 +1,5 @@
-#ifndef IOE_H_
-#define IOE_H_
+#ifndef FILE_H_
+#define FILE_H_
 int initsys();
 int closesys();
 

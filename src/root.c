@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "commont.h"
 
+
 enum{ONE = 1, TWO, THREE, FOUR, FIVE};
 int do_root(){
     int x;
@@ -22,15 +23,15 @@ int do_root(){
     case ONE:
         char sc1, ec1;
         int st1,et1,pr1,qu1;
-        scanf("please input need add infomention:%c %c %d %d %d %d %d", &sc1, &ec1, &st1, &et1, &pr1, &qu1);
-        Push(dl, sc1, ec1, st1, et1, pr1, qu1);
+        scanf("please input need add infomention:%c %c %d %d %d %d", &sc1, &ec1, &st1, &et1, &pr1, &qu1);
+        Push(sc1, ec1, st1, et1, pr1, qu1);
         EduPrjl = ROOT;
         break;
     case TWO:
         int s2;
         printf("please input need delete number:"); 
         scanf("%d", &s2);
-        Pop(dl, s2);
+        Pop(s2);
         EduPrjl = ROOT;
         break;
     case THREE:
@@ -39,8 +40,8 @@ int do_root(){
          scanf("%d", &n3);
         char sc3, ec3;
         int st3,et3,pr3,qu3;
-        scanf("please input need delete infomention:%c %c %d %d %d %d %d", &sc3, &ec3, &st3, &et3, &pr3, &qu3);
-        change(dl, sc3, ec3, st3, et3, pr3, qu3, n3);
+        scanf("please input need delete infomention:%c %c %d %d %d %d", &sc3, &ec3, &st3, &et3, &pr3, &qu3);
+        change(sc3, ec3, st3, et3, pr3, qu3, n3);
         EduPrjl = ROOT;
         break;
     case FOUR:

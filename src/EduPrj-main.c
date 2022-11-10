@@ -6,13 +6,15 @@
 #include "commont.h"
 #include <stdio.h>
 
+int EduPrjl;
+
 int main(int argc, char *argv){
     InitLogo();
 
 #ifdef MODE_FIRST
     initsys();
 #else 
-    Inisys(dl);
+    Inisys();
 #endif
 
     while(EduPrjl != QUICK){

@@ -9,14 +9,13 @@
 #include <stdlib.h>
 #include "commont.h"
 
-
-
-NODE *Inisys(NODE *L){
+NODE *dl;
+int Inisys(){
     NODE *s;
-    char sc[8], ec[8];
+    char sc, ec;
     int st, et, pr, qu;
-    L = (NODE *)malloc(sizeof(NODE));
-    L->next = NULL ;
+    dl = (NODE *)malloc(sizeof(NODE));
+    dl->next = NULL ;
     #ifdef ABLEINIT
     scanf("%c", sc);
     scanf("%c", ec);
@@ -25,45 +24,45 @@ NODE *Inisys(NODE *L){
     scanf("%c", pr);
     scanf("%c", qu);
     #else
-    sc[8] = "BeiJing";
-    ec[8] = "ShenZhen";
+    sc = 'a';
+    ec = 'b';
     st = 830 ;
     et = 1330;
     pr = 799 ;
     qu = 999 ;
     #endif
     s = (NODE *)malloc(sizeof(NODE));
-    s->stear[8] = sc[8] ;
-    s->enear[8] = ec[8] ;
+    s->stear = sc ;
+    s->enear = ec ;
     s->sttime = st ;
     s->entime = et ;
     s->Price = pr ;
     s->quantity = qu ;
-    s->next = L->next;
-    L->next = s ;
+    s->next = dl->next;
+    dl->next = s ;
 
-return L;
+return 1;
 }
 
-PNODE InitList(NODE *L, char sc, char ec, int st, int et, int pr, int qu){
+int InitList( char sc, char ec, int st, int et, int pr, int qu){
     NODE *s;
-    L = (NODE *)malloc(sizeof(NODE));
-    L->next = NULL ;
+    dl = (NODE *)malloc(sizeof(NODE));
+    dl->next = NULL ;
     s = (NODE *)malloc(sizeof(NODE));
-    s->stear[8] = sc ;
-    s->enear[8] = ec ;
+    s->stear = sc ;
+    s->enear = ec ;
     s->sttime = st ;
     s->entime = et ;
     s->Price = pr ;
     s->quantity = qu ;
-    s->next = L->next;
-    L->next = s ;
+    s->next = dl->next;
+    dl->next = s ;
 
-return L;
+return 1;
 }
 
-PNODE Getelem(PNODE L, char sc, char ec){
-    NODE *p = L ;
+NODE *Getelem(char sc, char ec){
+    NODE *p = dl ;
     if(p->next == NULL){
         assert(1);
         printf("init default\n");
@@ -79,11 +78,11 @@ PNODE Getelem(PNODE L, char sc, char ec){
 return p;
 }
 
-PNODE Getnumber(PNODE L, int n){
+NODE *Getnumber(int n){
     int j;
     NODE* s;
-    s = L;
-    if(L->next == NULL){
+    s = dl;
+    if(dl->next == NULL){
         assert(1);
         printf("init default\n");
     }
@@ -95,22 +94,22 @@ PNODE Getnumber(PNODE L, int n){
 return s;
 }
 
-int display(PNODE L){
-    if(L->next == NULL){
+int display(){
+    if(dl->next == NULL){
         assert(1);
         printf("init default\n");
     }
-    while(L->next != NULL) {
-        {Log(L->stear[8], L->enear[8], L->sttime, L->entime, L->Price, L->quantity);}
+    while(dl->next != NULL) {
+        {Log(dl->stear, dl->enear, dl->sttime, dl->entime, dl->Price, dl->quantity);}
     }
     return 1;
 }
 
-int change(PNODE L, char sc, char ec, int st, int et, int pr, int qu, int n){
+int change(char sc, char ec, int st, int et, int pr, int qu, int n){
     NODE *s;
-    s = Getnumber(dl, n);
-    s->stear[8] = sc;
-    s->enear[8] = ec;
+    s = Getnumber(n);
+    s->stear = sc;
+    s->enear = ec;
     s->sttime = st;
     s->entime = et;
     s->Price = pr;
@@ -118,25 +117,25 @@ int change(PNODE L, char sc, char ec, int st, int et, int pr, int qu, int n){
 return 1;
 }
 
-int Push(PNODE L, char sc, char ec, int st, int et, int pr, int qu){
+int Push(char sc, char ec, int st, int et, int pr, int qu){
     NODE *a;
     a = (NODE *)malloc(sizeof(NODE));
-    a->stear[8] = sc;
-    a->enear[8] = ec;
+    a->stear = sc;
+    a->enear = ec;
     a->sttime = st;
     a->entime = et;
     a->Price = pr;
     a->quantity = qu;
-    a->next = L->next;
-    L->next = a;
+    a->next = dl->next;
+    dl->next = a;
 
 return 1;
 }
 
-int Pop(PNODE L, int n){
+int Pop(int n){
     NODE *q, *p;
-    q = Getnumber(dl, n);
-    p = Getnumber(dl, n-1);
+    q = Getnumber(n);
+    p = Getnumber(n-1);
     p->next = q->next;
     free(q);
     return 1;

@@ -3,26 +3,27 @@
 
 typedef char EarType ;
 typedef int TimeType ;
-typedef struct {
-EarType stear[8] ;
-EarType enear[8] ;
+typedef struct lnode{
+EarType stear ;
+EarType enear ;
 TimeType sttime ;
 TimeType entime ;
 int Price ;
 int quantity ;
-struct NODE *next ;
-}NODE, *PNODE ;
+struct lnode *next ;
+}NODE;
 
 
-PNODE InitList(NODE *L, char sc, char ec, int st, int et, int pr, int qu);
-PNODE Getelem(PNODE L, char sc, char ec);
-int display(PNODE L);
-NODE *Inisys(NODE *L);
-PNODE Getnumber(PNODE L, int n);
-int change(PNODE L, char sc, char ec, int st, int et, int pr, int qu, int n);
-int Push(PNODE L, char sc, char ec, int st, int et, int pr, int qu);
-int Pop(PNODE L, int n);
+int InitList(char sc, char ec, int st, int et, int pr, int qu);
+NODE *Getelem(char sc, char ec);
+int display();
+int Inisys();
+NODE *Getnumber(int n);
+int change(char sc, char ec, int st, int et, int pr, int qu, int n);
+int Push(char sc, char ec, int st, int et, int pr, int qu);
+int Pop(int n);
 
-NODE *dl;
+
+
 
 #endif

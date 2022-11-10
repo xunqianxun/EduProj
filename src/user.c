@@ -18,11 +18,11 @@ int do_user(){
     scanf("please input you want do:%d",&x);
     if(x == 1){
         peintf_();
-        display(dl);
+        display();
         peintf_();
         scanf("which one you want buy:%d", &j);
-        p = Getnumber(dl, j); 
-        Log(p->stear[8], p->enear[8], p->sttime, p->entime, p->Price, p->quantity);
+        p = Getnumber(j); 
+        Log(p->stear, p->enear, p->sttime, p->entime, p->Price, p->quantity);
         EduPrjl = USER;
     }
     else if(x == 3) {
