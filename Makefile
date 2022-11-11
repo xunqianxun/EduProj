@@ -20,23 +20,23 @@ INFLAGS= -I include/
 TARGET=EduPrj
 
 EduPrj-main.o:$(SRCDIR)EduPrj-main.c
-	$(CC) -c $(SRCDIR)EduPrj-main.c $(GCCFLAGS) $(BUILDDIR)EduPrj-main.o $(INFLAGS)
+	@$(CC) -c $(SRCDIR)EduPrj-main.c $(GCCFLAGS) $(BUILDDIR)EduPrj-main.o $(INFLAGS)
 file.o:$(SRCDIR)file.c
-	$(CC) -c $(SRCDIR)file.c $(GCCFLAGS) $(BUILDDIR)file.o $(INFLAGS)
+	@$(CC) -c $(SRCDIR)file.c $(GCCFLAGS) $(BUILDDIR)file.o $(INFLAGS)
 ioe.o:$(SRCDIR)ioe.c
-	$(CC) -c $(SRCDIR)ioe.c $(GCCFLAGS) $(BUILDDIR)ioe.o $(INFLAGS)
+	@$(CC) -c $(SRCDIR)ioe.c $(GCCFLAGS) $(BUILDDIR)ioe.o $(INFLAGS)
 Link.o:$(SRCDIR)Link.c
-	$(CC) -c $(SRCDIR)Link.c $(GCCFLAGS) $(BUILDDIR)Link.o $(INFLAGS)
+	@$(CC) -c $(SRCDIR)Link.c $(GCCFLAGS) $(BUILDDIR)Link.o $(INFLAGS)
 logo.o:$(SRCDIR)logo.c
-	$(CC) -c $(SRCDIR)logo.c $(GCCFLAGS) $(BUILDDIR)logo.o $(INFLAGS)
+	@$(CC) -c $(SRCDIR)logo.c $(GCCFLAGS) $(BUILDDIR)logo.o $(INFLAGS)
 root.o:$(SRCDIR)root.c
-	$(CC) -c $(SRCDIR)root.c $(GCCFLAGS) $(BUILDDIR)root.o $(INFLAGS)
+	@$(CC) -c $(SRCDIR)root.c $(GCCFLAGS) $(BUILDDIR)root.o $(INFLAGS)
 user.o:$(SRCDIR)user.c
-	$(CC) -c $(SRCDIR)user.c $(GCCFLAGS) $(BUILDDIR)user.o $(INFLAGS)
+	@$(CC) -c $(SRCDIR)user.c $(GCCFLAGS) $(BUILDDIR)user.o $(INFLAGS)
 
-run: Link.o ioe.o file.o user.o root.o logo.o  EduPrj-main.o 
-	$(CC) $(BUILDDIR)ioe.o $(BUILDDIR)file.o $(BUILDDIR)Link.o $(BUILDDIR)user.o $(BUILDDIR)root.o $(BUILDDIR)logo.o $(BUILDDIR)EduPrj-main.o -o $(BUILDDIR)$(TARGET)
-	./$(TARGET)
+run: Link.o ioe.o file.o user.o root.o logo.o  EduPrj-main.o out 
+	@$(CC) $(BUILDDIR)ioe.o $(BUILDDIR)file.o $(BUILDDIR)Link.o $(BUILDDIR)user.o $(BUILDDIR)root.o $(BUILDDIR)logo.o $(BUILDDIR)EduPrj-main.o -o $(BUILDDIR)$(TARGET)
+	@./$(TARGET)
 	$(COLOR_GRE) EduPrj Work Successfully!! $(COLOR_ENG)
 
 git:
