@@ -34,10 +34,14 @@ root.o:$(SRCDIR)root.c
 user.o:$(SRCDIR)user.c
 	@$(CC) -c $(SRCDIR)user.c $(GCCFLAGS) $(BUILDDIR)user.o $(INFLAGS)
 
-run: Link.o ioe.o file.o user.o root.o logo.o  EduPrj-main.o out 
+run: Link.o ioe.o file.o user.o root.o logo.o  EduPrj-main.o 
 	@$(CC) $(BUILDDIR)ioe.o $(BUILDDIR)file.o $(BUILDDIR)Link.o $(BUILDDIR)user.o $(BUILDDIR)root.o $(BUILDDIR)logo.o $(BUILDDIR)EduPrj-main.o -o $(BUILDDIR)$(TARGET)
-	@./$(TARGET)
+	@./$(BUILDDIR)$(TARGET)
 	$(COLOR_GRE) EduPrj Work Successfully!! $(COLOR_ENG)
+
+gdbrun: Link.o ioe.o file.o user.o root.o logo.o  EduPrj-main.o 
+	@$(CC) -g $(SRCDIR)ioe.c $(SRCDIR)file.c $(SRCDIR)Link.c $(SRCDIR)user.c $(SRCDIR)root.c $(SRCDIR)logo.c $(SRCDIR)EduPrj-main.c -o $(BUILDDIR)$(TARGET) $(INFLAGS)
+	gdb $(BUILDDIR)$(TARGET)
 
 git:
 	git add .

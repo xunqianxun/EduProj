@@ -7,12 +7,14 @@
 
 
 //#define MODE_FIRST
-enum{ROOT, USER, QUICK};
+//#define ABLEINIT
+enum{ROOT, USER, MAIN_GUR, QUICK};
 extern int EduPrjl;
 
 
 int do_root();
 int do_user();
+int main_gur();
 int InitLogo();
 
 

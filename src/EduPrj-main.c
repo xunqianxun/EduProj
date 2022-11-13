@@ -6,7 +6,7 @@
 #include "commont.h"
 #include <stdio.h>
 
-int EduPrjl;
+int EduPrjl = MAIN_GUR;
 
 int main(int argc, char *argv){
     InitLogo();
@@ -16,10 +16,12 @@ int main(int argc, char *argv){
 #else 
     Inisys();
 #endif
-
     while(EduPrjl != QUICK){
         switch (EduPrjl)
         {
+        case MAIN_GUR:
+             main_gur();
+            break;
         case ROOT:
             do_root();
             break;
