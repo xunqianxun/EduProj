@@ -9,42 +9,6 @@
 #include "commont.h"
 
 
-
-// int initsys(){
-//     int cont = 0;
-//     FILE *fp = fopen("/home/mulin/EduPrj/tools/keep.txt", "rt");
-//     NODE *s;
-//     if(fp == NULL) {printf("open false\n");}
-//     while(feof(fp)){
-//     fread(s, sizeof(NODE)+14, 1, fp); 
-//     if(cont == 0){
-//         InitList(s->stear, s->enear, s->styear, s->stmouth, s->stdata, s->etyear, s->etmouth, s->etdata, s->Price, s->quantity);
-//     }
-//     else {
-//         Push(s->stear, s->enear, s->styear, s->stmouth, s->stdata, s->etyear, s->etmouth, s->etdata, s->Price, s->quantity);
-//     }
-//     cont++;
-//     }
-    
-//     fclose(fp);
-
-// return 1;
-// }
-
-// int closesys(){
-//     NODE * l;
-//     l = Getnumber(1);
-//     FILE *fp = fopen("/home/mulin/EduPrj/tools/keep.txt", "wt");
-//     if(fp == NULL) {printf("open false\n");}
-//     while(l->next != NULL){
-//         fwrite(l, sizeof(NODE), 1, fp);
-//         l = l->next ;
-//     }
-//     fclose(fp);
-// return 1;
-// }
-
-
 int initsys(){
 
     time_t t = time(NULL);
@@ -80,18 +44,14 @@ return 1;
 
 int closesys(){
     NODE *l;
-    char star[8];
-    char en[8];
     l = l = Getnumber(1);
     FILE *wstart = fopen("/home/mulin/EduPrj/tools/start.txt", "wt");
     FILE *wend = fopen("/home/mulin/EduPrj/tools/end.txt", "wt");
     if(wstart == NULL) {printf("open start false\n");}
     if(wend == NULL) {printf("open end false\n");}
-    while(l->next != NULL){
-        star[8] = (char)l->stear;
-        en[8] = (char)l->enear;
-        fprintf(wstart, "%s", star);
-        fprintf(wend, "%s", en);
+    while(l->next != NULL){ 
+        fprintf(wstart, "%s", l->stear);
+        fprintf(wend, "%s", l->enear);
         l = l->next ;
     }
     fclose(wstart);
