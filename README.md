@@ -51,5 +51,5 @@
 
 >make git : can help you commit you change to Git
 
-
+>make gdbrun : start gdb debugging program
 
