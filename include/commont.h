@@ -6,7 +6,7 @@
 #include "file.h"
 
 
-#define MODE_FIRST
+//#define MODE_FIRST
 //#define ABLEINIT
 enum{ROOT, USER, MAIN_GUR, QUICK};
 extern int EduPrjl;

@@ -41,7 +41,7 @@ return 1;
 }
 
 int main_gur(){
-  char s;
+  char s = 0;
   printf("              Who you are?                \n");
   printf("I`m user(u)                 I`m root(r)   \n");
   scanf("%c", &s);
@@ -51,6 +51,6 @@ int main_gur(){
   else if(s == 'r'){
     EduPrjl = ROOT;
   }
-  else{EduPrjl = QUICK;}
+  else{EduPrjl = MAIN_GUR;}
 return 1;
 }
